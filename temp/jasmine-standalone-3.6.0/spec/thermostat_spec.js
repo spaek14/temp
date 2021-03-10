@@ -40,4 +40,13 @@ describe(".down", function() {
       expect(thermo.temperature()).toEqual(25);
     });
   });
+
+  describe("powerSavingMode", function() {
+    it("power saver off max temp 32", function() {
+      let thermo = new Thermostat();
+      thermo.powerSavingMode("off");
+      thermo.up(30);
+      expect(thermo.temperature()).toEqual(32);
+    });
+  });
 });
