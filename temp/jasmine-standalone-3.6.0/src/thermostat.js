@@ -1,22 +1,35 @@
-class Thermostat{
+class Thermostat {
   constructor(currentTemp = 20, minTemp = 10) {
     this.currentTemp = currentTemp;
     this.minTemp = minTemp;
-  };
+    this.powerSaver = false;
+};
 
-  temperature(){
-    return this.currentTemp;
-  };
+temperature() {
+  return this.currentTemp
+};
 
-  up = function(value) {
+up = function(value) {
+  if (this.powerSaver === true && this.currentTemp + value > 25) {
+    this.currentTemp = 25
+  } else {
     this.currentTemp += value;
   };
+};
 
-  down = function(value) {
-    if(this.currentTemp - value < this.minTemp) {
-      this.currentTemp = this.minTemp
-    } else {
-      this.currentTemp -= value;
-    };
+down = function(value) {
+  if (this.currentTemp - value < this.minTemp) {
+    this.currentTemp = this.minTemp
+  } else {
+    this.currentTemp -= value;
   };
+};
+
+powerSavingMode = function(setting) {
+  if (setting === "on") {
+    this.powerSaver = true;
+  } else if (setting === "off") {
+    this.powerSaver = false;
+  };
+};
 }

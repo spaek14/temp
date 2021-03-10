@@ -25,17 +25,19 @@ describe(".down", function() {
 
   describe(".min", function() {
     it("the minimum temperature is 10 degrees", function() {
-      let thermo =  new Thermostat();
+      let thermo = new Thermostat();
       thermo.down(15);
       expect(thermo.temperature()).toEqual(10);
     });
   });
 
 // If power saving mode is on, the maximum temperature is 25 degrees
-  describe('powerSavingMode', function() {
-    let thermo =  new Thermostat();
-    thermo.powerSavingMode(true);
-    thermo.up(10);
-    expect(thermo.temperature()).toEqual(25);
+  describe("powerSavingMode", function() {
+    it("power saver max temp 25", function() {
+      let thermo = new Thermostat();
+      thermo.powerSavingMode("on");
+      thermo.up(10);
+      expect(thermo.temperature()).toEqual(25);
+    });
   });
 });
