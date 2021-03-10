@@ -30,4 +30,12 @@ describe(".down", function() {
       expect(thermo.temperature()).toEqual(10);
     });
   });
+
+// If power saving mode is on, the maximum temperature is 25 degrees
+  describe('powerSavingMode', function() {
+    let thermo =  new Thermostat();
+    thermo.powerSavingMode(true);
+    thermo.up(10);
+    expect(thermo.temperature()).toEqual(25);
+  });
 });

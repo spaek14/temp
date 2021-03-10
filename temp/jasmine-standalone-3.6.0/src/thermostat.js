@@ -1,17 +1,22 @@
 class Thermostat{
-  constructor(current_temp = 20) {
-    this.current_temp = current_temp;
+  constructor(currentTemp = 20, minTemp = 10) {
+    this.currentTemp = currentTemp;
+    this.minTemp = minTemp;
   };
 
   temperature(){
-    return this.current_temp;
+    return this.currentTemp;
   };
 
   up = function(value) {
-    this.current_temp += value;
+    this.currentTemp += value;
   };
 
   down = function(value) {
-    this.current_temp -= value;
+    if(this.currentTemp - value < this.minTemp) {
+      this.currentTemp = this.minTemp
+    } else {
+      this.currentTemp -= value;
+    };
   };
 }
