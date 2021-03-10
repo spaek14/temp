@@ -49,4 +49,13 @@ describe(".down", function() {
       expect(thermo.temperature()).toEqual(32);
     });
   });
+
+  describe("powerSavingMode", function() {
+    it("power saver is on by default but can by toggled on and off", function() {
+      let thermo = new Thermostat();
+      expect(thermo.powerSaver).toBe(true)
+      thermo.powerSavingMode("off");
+      expect(thermo.powerSaver).toBe(false)
+    });
+  });
 });

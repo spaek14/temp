@@ -12,7 +12,11 @@ temperature() {
 up = function(value) {
   if (this.powerSaver === true && this.currentTemp + value > 25) {
     this.currentTemp = 25
-  } else {
+  }
+  else if (this.powerSaver === false && this.currentTemp + value > 32) {
+    this.currentTemp = 32
+  }
+  else {
     this.currentTemp += value;
   };
 };
