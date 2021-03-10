@@ -10,4 +10,8 @@ class Thermostat{
   up = function(value) {
     this.current_temp += value;
   };
+
+  down = function(value) {
+    this.current_temp -= value;
+  };
 }

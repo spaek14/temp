@@ -22,4 +22,12 @@ describe(".down", function() {
       expect(thermo.temperature()).toEqual(15);
     });
   });
+
+  describe(".min", function() {
+    it("the minimum temperature is 10 degrees", function() {
+      let thermo =  new Thermostat();
+      thermo.down(15);
+      expect(thermo.temperature()).toEqual(10);
+    });
+  });
 });
