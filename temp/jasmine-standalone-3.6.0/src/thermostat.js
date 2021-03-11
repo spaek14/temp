@@ -36,4 +36,18 @@ powerSavingMode = function(setting) {
     this.powerSaver = false;
   };
 };
+
+reset() {
+  this.currentTemp = 20
+};
+
+currentUsage() {
+  if (this.currentTemp < 18) {
+    return "lowusage"
+  } else if (this.currentTemp < 26) {
+    return "mediumusage"
+  } else {
+    return "highusage"
+  };
+};
 }

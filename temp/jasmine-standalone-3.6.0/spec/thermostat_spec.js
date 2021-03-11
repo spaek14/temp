@@ -58,4 +58,34 @@ describe(".down", function() {
       expect(thermo.powerSaver).toBe(false)
     });
   });
+
+  describe("reset", function() {
+    it("reset makes the temperature 20", function() {
+      let thermo = new Thermostat();
+      thermo.up(10);
+      thermo.reset();
+      expect(thermo.temperature()).toEqual(20);
+    });
+  });
+
+  describe("currentUsage()", function() {
+    it("anything less than 18 is low-usage", function() {
+      let thermo = new Thermostat();
+      thermo.down(5);
+      expect(thermo.currentUsage()).toEqual("lowusage");
+    });
+
+    it("18-25 is mediumusage", function() {
+      let thermo = new Thermostat();
+      expect(thermo.currentUsage()).toEqual("mediumusage");
+    });
+
+    it("anything else is highusage", function() {
+      let thermo = new Thermostat();
+      thermo.powerSavingMode("off");
+      thermo.up(10);
+      expect(thermo.currentUsage()).toEqual("highusage");
+    });
+  });
+  // You can ask about the thermostat's current energy usage: < 18 is low-usage, <= 25 is medium-usage, anything else is high-usage.
 });
