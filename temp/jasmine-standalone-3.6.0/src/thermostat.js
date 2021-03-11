@@ -2,7 +2,7 @@ class Thermostat {
   constructor(currentTemp = 20, minTemp = 10) {
     this.currentTemp = currentTemp;
     this.minTemp = minTemp;
-    this.powerSaver = false;
+    this.powerSaver = true;
 };
 
 temperature() {
